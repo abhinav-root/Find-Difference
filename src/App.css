@@ -1,38 +1,170 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*::before,
+*::after,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple-dark: #b284be;
+  --text-color: #545454;
+  --purple-light: #cdafd4;
+  --gray-light: #dcbce4;
+  --green: #7ff3a2;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  color: var(--purple-dark);
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+}
+
+main {
+  color: var(--text-color);
+  padding: 2rem 1rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.input-text {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--gray-light);
+  width: 50%;
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+.input-text::placeholder {
+  color: #8a8a8a;
+}
+
+.input-text:focus {
+  border: 0.2rem solid var(--purple-dark);
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+.items-container {
+  margin: 1rem 0;
+}
+.items-container li {
+  padding: 0.5rem 2rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--purple-light);
+  list-style-type: none;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  border-radius: 0.2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button.add-item-button {
+  border-radius: 0.5rem;
+  padding: 0.9rem 0;
+  font-size: 1.2rem;
+  border: 1px solid gray;
+  color: var(--purple-dark);
+  background-color: white;
+  text-transform: uppercase;
+  width: 50%;
+  max-width: 20rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button.add-item-button:disabled {
+  cursor: not-allowed;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button.add-item-button:disabled:hover {
+  cursor: not-allowed;
+  color: var(--purple-dark);
+  background-color: white;
+}
+
+button.add-item-button:hover {
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  color: white;
+  background-color: var(--purple-dark);
+}
+
+.input-button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+button.add-item-button {
+  width: 30%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section.items {
+  margin: 3rem 0;
+}
+
+section.items ul {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.8rem 1rem;
+}
+
+section.items h2 {
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+
+section.items li {
+  list-style-type: none;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--green);
+  font-weight: 400;
+  border-radius: 0.3rem;
+}
+
+/* Media queries */
+
+@media (min-width: 400px) {
+  section.items ul {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 700px) {
+  section.items ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  section.items ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1500px) {
+  section.items ul {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .input-button-container {
+    flex-direction: row;
   }
 }
